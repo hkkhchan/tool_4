@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+		<script src="tool_4.js"></script>
+		<link href="tool.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<section ng-app="toolApp" ng-controller="toolCtrl">
+			<div>
+				<input type="text" class="long_text" id="url" placeholder="URL" />
+			</div>
+			<div>
+				<nav>
+					<span id="get" class="option" ng-class="is_selected(1)" ng-click="set_selected(1)">GET</span>
+					<span id="post" class="option" ng-class="is_selected(2)" ng-click="set_selected(2)">POST</span>
+				</nav>
+			</div>
+			<section class="group-3" style="width: 70%;">
+				<div>
+					<span>參數</span>
+					<span>值</span>
+					<span type="button" ng-click="add()">新增</span>
+				</div>
+				<div ng-repeat="row in rows" ng-show="row.show=true">
+					<span><input type="text" class="text" name="parms[]" ng-model="row.name" /></span>
+					<span><input type="text" class="text" name="values[]" ng-model="row.value" /></span>
+					<span ng-click="hide(row.id)">刪除</span>
+				</div>
+			</section>
+			<article id="res_html">
+			</article>
+			<textarea id="res_code">
+			</textarea>
+		</section>
+	</body>
+</html>

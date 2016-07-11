@@ -1,0 +1,158 @@
+textarea{
+	width: 80%;
+	height: 12em;
+	resize: none;
+	padding: 15px;
+	font-size:150%;
+	border: 3px solid #3A3BEB;
+	color:black;
+}
+
+textarea:focus{
+	outline:0;
+}
+
+nav{
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.frame_label{
+	position:relative;
+	display:inline;
+	top:16px;
+	left:30px;
+	font-size:150%;
+	color: #3A3BEB;
+	background-color: white;
+   -moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;	
+}
+
+.text{
+	font-size: 200%;
+	width: 130px;
+}
+
+.long_text{
+	font-size: 200%;
+	width: 70%;
+}
+
+.option{
+	width: 15%;
+	height: 50px;
+	margin: 0.3em;
+	border-radius: 15px;
+	background-color: #EEEEEE;
+	text-align:center;
+	line-height: 2.3;
+	font-size:150%;
+	display:inline-block;
+	cursor:pointer;
+   -moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;	
+}
+
+.option.active{
+	background-color: #F39814;
+}
+
+
+.button{
+	width: 15%;
+	height: 50px;
+	margin: 0.3em;
+	border: 2px outset #F2F5A9;
+	border-radius: 15px;
+	background-color: #F2F5A9;
+	text-align:center;
+	line-height: 2;
+	font-size:150%;
+	display:inline-block;
+	cursor:pointer;
+   -moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+.button:active{
+	border: 2px inset #F2F5A9;
+}
+
+.dataTables_wrapper select{
+	margin: 2.6px;
+	padding: 4px;
+}
+
+.dataTables_wrapper input{
+	width: 107px;
+}
+
+.hot{
+	font-variant: small-caps;
+	font-size: x-small;
+    display: inline-block;
+    background-color: rgba(241, 157, 36, 0.65);
+    color: white;
+    border-radius: 4px;
+    width: 20px;
+    text-align: center;
+    position: relative;
+    top: -7px;
+    left: 4px;
+    font-weight: bold;
+}
+
+.group-3 div{
+	margin: 5px;
+}
+
+.group-3 span{
+	width: 30%;
+	display: inline-block;
+}
+@media screen and (max-width: 960px) {
+	.button{
+		font-size:100%;
+		font-weight:bold;
+		line-height: 3.3;
+		width: 50px;
+		height: 50px;
+		border-radius: 25px;
+		border: 0;
+	}
+	
+	.button:active{
+		border: 0;
+	}
+	
+	.option{
+		font-size:90%;
+		width: 20%;
+		line-height:3.8;
+	}
+	
+	.text{
+		width: 100px;
+	}
+}
+@media screen and (max-width: 650px) {
+	#tbl_ascii{
+		font-size: 80%;
+	}
+	
+	#tbl_ascii_length{
+		display:none;
+	}
+}
