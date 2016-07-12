@@ -1,4 +1,3 @@
-/*true*/
 var app= angular.module('toolApp',[]).controller('toolCtrl',function($scope){
 	$scope.mode=2;
 	$scope.rows=[{id: 0,show:true,name:'',value:''}];
