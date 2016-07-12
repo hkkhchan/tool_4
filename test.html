@@ -23,7 +23,7 @@
 					<span>值</span>
 					<span type="button" ng-click="add()">新增</span>
 				</div>
-				<div ng-repeat="row in rows" ng-show="row.show=true">
+				<div ng-repeat="row in rows" ng-show="row.show">
 					<span><input type="text" class="text" name="parms[]" ng-model="row.name" /></span>
 					<span><input type="text" class="text" name="values[]" ng-model="row.value" /></span>
 					<span ng-click="hide(row.id)">刪除</span>

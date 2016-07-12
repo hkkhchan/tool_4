@@ -13,6 +13,10 @@ var app= angular.module('toolApp',[]).controller('toolCtrl',function($scope){
 		$scope.rows.push(obj);
 	}
 	$scope.hide=function(d){
-		$scope.rows[d].show=false;
+		var showNum=0;
+		for (i in $scope.rows){
+			showNum+= $scope.rows[i].show?1:0;
+		}
+		if (showNum > 1) $scope.rows[d].show=false;
 	}
 });

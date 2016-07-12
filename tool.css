@@ -6,6 +6,7 @@ textarea{
 	font-size:150%;
 	border: 3px solid #3A3BEB;
 	color:black;
+	margin: 5px 0;
 }
 
 textarea:focus{
