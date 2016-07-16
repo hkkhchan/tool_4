@@ -20,4 +20,11 @@ var app= angular.module('toolApp',[]).controller('toolCtrl',function($scope){
 		}
 		if (showNum > 1) $scope.rows[d].show=false;
 	}
+	$scope.go=function(){
+	}
+	$scope.reset=function(){
+		$scope.layout=1;
+		$scope.method=2;
+		$scope.rows=[{id: 0,show:true,name:'',value:''}];
+	}
 });
