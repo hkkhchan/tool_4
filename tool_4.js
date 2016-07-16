@@ -1,9 +1,10 @@
 /*true*/
 var app= angular.module('toolApp',[]).controller('toolCtrl',function($scope){
-	$scope.mode=2;
+	$scope.method=2;
+	$scope.layout=1;
 	$scope.rows=[{id: 0,show:true,name:'',value:''}];
-	$scope.is_selected=function(d){return d==$scope.mode?'active':'';}
-	$scope.set_selected=function(d){$scope.mode=d;}
+	$scope.is_selected=function(d,k){return d==$scope[k]?'active':'';}
+	$scope.set_selected=function(d,k){$scope[k]=d;}
 	$scope.add=function(){
 		obj={
 			id: $scope.rows.length,

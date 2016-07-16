@@ -13,8 +13,15 @@
 			</div>
 			<div>
 				<nav>
-					<span id="get" class="option" ng-class="is_selected(1)" ng-click="set_selected(1)">GET</span>
-					<span id="post" class="option" ng-class="is_selected(2)" ng-click="set_selected(2)">POST</span>
+					<span id="get" class="option" ng-class="is_selected(1,'method')" ng-click="set_selected(1,'method')">GET</span>
+					<span id="post" class="option" ng-class="is_selected(2,'method')" ng-click="set_selected(2,'method')">POST</span>
+				</nav>
+			</div>
+			<div>
+				<nav>
+					<span id="text" class="option" ng-class="is_selected(1,'layout')" ng-click="set_selected(1,'layout')">TEXT</span>
+					<span id="html" class="option" ng-class="is_selected(2,'layout')" ng-click="set_selected(2,'layout')">HTML</span>
+					<span id="json" class="option" ng-class="is_selected(3,'layout')" ng-click="set_selected(3,'layout')">JSON</span>
 				</nav>
 			</div>
 			<section class="group-3" style="width: 70%;">
@@ -31,8 +38,6 @@
 			</section>
 			<article id="res_html">
 			</article>
-			<textarea id="res_code">
-			</textarea>
 		</section>
 	</body>
 </html>
