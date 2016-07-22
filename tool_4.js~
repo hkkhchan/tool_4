@@ -1,3 +1,4 @@
+/*true*/
 var app= angular.module('toolApp',[]).controller('toolCtrl',function($scope,$http){
 	$scope.method=2;
 	$scope.layout=1;
@@ -20,24 +21,7 @@ var app= angular.module('toolApp',[]).controller('toolCtrl',function($scope,$htt
 		if (showNum > 1) $scope.rows[d].show=false;
 	}
 	$scope.go=function(){
-		var parms = {
-			url: $scope.url,
-			method: $scope.method==1?'GET':'POST'
-		};
-		var data=new Object;
-		angular.forEach($scope.rows,function(value,key){
-			if (value.name!='') data[value.name]=value.value;
-		});
-		parms['data']=data;
-		$http({
-			method: 'POST',
-			url:  	'ajax.php',
-			data: 	parms
-		}).then(function success(res){
-			console.log('ok:'+res);
-		},function error(res){
-			console.log('err:'+res);
-		});
+		
 	}
 	$scope.reset=function(){
 		$scope.layout=1;
