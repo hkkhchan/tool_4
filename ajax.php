@@ -14,7 +14,7 @@
 		curl_setopt_array($ch,$options);
 	}
 	else{
-		$str='';
+		$str='?';
 		foreach($parms->data as $key=>$data){
 			$str.=$key.'='.$data.'&';
 		}
@@ -23,5 +23,6 @@
 	}
 	$res= curl_exec($ch);
 	curl_close($ch);
-	echo $res;
+	echo 'ok';
+	return true;
 ?>
