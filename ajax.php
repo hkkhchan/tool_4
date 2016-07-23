@@ -1,9 +1,9 @@
 <?php
 	$parms=json_decode(file_get_contents('php://input'));
 	$ch = curl_init();
-	if ($parms['method']=='POST'){
-		$option = array(
-			CURLOPT_URL => $parms['url'],
+	if ($parms->method=='POST'){
+		$options = array(
+			CURLOPT_URL => $parms->url,
 			CURLOPT_HEADER=>0,
 			CURLOPT_VERBOSE=>0,
 			CURLOPT_RETURNTRANSFER=>true,
@@ -23,6 +23,6 @@
 	}
 	$res= curl_exec($ch);
 	curl_close($ch);
-	echo 'ok';
+	echo $res;
 	return true;
 ?>
