@@ -1,5 +1,8 @@
 <?php
 	$parms=json_decode(file_get_contents('php://input'));
+	if (substr($parms->url,0,4)!='http'){
+		$parms->url='http://'.$parms->url;
+	}
 	$ch = curl_init();
 	if ($parms->method=='POST'){
 		$options = array(

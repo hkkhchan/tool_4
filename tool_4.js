@@ -36,7 +36,6 @@ var app= angular.module('toolApp',[]).controller('toolCtrl',function($scope,$htt
 			url:  	'ajax.php',
 			data: 	parms
 		}).then(function success(d){
-			layout=$scope.layout;
 			switch($scope.layout){
 				case 1:
 					$scope.res_text='<pre>'+d.data+'</pre>';
