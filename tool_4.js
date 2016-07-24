@@ -1,7 +1,7 @@
-var app= angular.module('toolApp',[]).controller('toolCtrl',function($scope,$http){
+var app= angular.module('toolApp',[]).controller('toolCtrl',function($scope,$http,$sce){
 	$scope.method=2;
 	$scope.layout=1;
-	$scope.res='';
+	$scope.res_text=$scope.res_html=$scope.res_json='';
 	$scope.rows=[{id: 0,show:true,name:'',value:''}];
 	$scope.is_selected=function(d,k){return d==$scope[k]?'active':'';}
 	$scope.set_selected=function(d,k){$scope[k]=d;}
@@ -21,6 +21,7 @@ var app= angular.module('toolApp',[]).controller('toolCtrl',function($scope,$htt
 		if (showNum > 1) $scope.rows[d].show=false;
 	}
 	$scope.go=function(){
+		$scope.res_text=$scope.res_html=$scope.res_json='';
 		var parms = {
 			url: $scope.url,
 			method: $scope.method==1?'GET':'POST'
@@ -38,13 +39,13 @@ var app= angular.module('toolApp',[]).controller('toolCtrl',function($scope,$htt
 			layout=$scope.layout;
 			switch($scope.layout){
 				case 1:
-					$scope.res=d.data;
+					$scope.res_text='<pre>'+d.data+'</pre>';
 					break;
 				case 2:
-					$scope.res='<pre>'+d.data+'</pre>';
+					$scope.res_html=d.data;
 					break;
 				case 3:
-					$scope.res='some json';
+					$scope.res='function developing';
 					break;
 			}
 		},function error(d){
@@ -55,5 +56,9 @@ var app= angular.module('toolApp',[]).controller('toolCtrl',function($scope,$htt
 		$scope.layout=1;
 		$scope.method=2;
 		$scope.rows=[{id: 0,show:true,name:'',value:''}];
+		$scope.res_text=$scope.res_html=$scope.res_json='';
+	}
+	$scope.toTrustedHTML = function(html){
+		return $sce.trustAsHtml(html);
 	}
 });

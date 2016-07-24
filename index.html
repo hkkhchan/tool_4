@@ -39,7 +39,9 @@
 					<i class="material-icons" ng-click="hide(row.id)">&#xE15C;</i>
 				</div>
 			</section>
-			<article>{{ res }}</article>
+			<div class="res_text">{{ res_text }}</div>
+			<div class="res_html" ng-bind-html='toTrustedHTML(res_html)'></div>
+			<json-formatter open="1" json="{my: 'json'}"></json-formatter>
 		</section>
 	</body>
 </html>

@@ -126,6 +126,10 @@ nav{
 .material-icons{
 	cursor:pointer;
 }
+.res_text{
+	background-color:#000;
+	color:#fff;
+}
 @media screen and (max-width: 960px) {
 	.button{
 		font-size:100%;

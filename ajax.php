@@ -14,12 +14,12 @@
 		curl_setopt_array($ch,$options);
 	}
 	else{
-		$str='?';
+		$url=$parms->url.'?';
 		foreach($parms->data as $key=>$data){
-			$str.=$key.'='.$data.'&';
+			$url.=$key.'='.$data.'&';
 		}
-		$str=rtrim($str,'&');
-		curl_setopt($ch,CURLOPT_URL,$parms['url'].$str);
+		$url=rtrim($url,'&');
+		curl_setopt($ch,CURLOPT_URL,$url);
 	}
 	$res= curl_exec($ch);
 	curl_close($ch);
