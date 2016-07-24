@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 		<script src="tool_4.js"></script>
 		<link href="tool.css" rel="stylesheet" type="text/css" />
@@ -30,16 +31,15 @@
 				<div>
 					<span>參數</span>
 					<span>值</span>
-					<span type="button" ng-click="add()">新增</span>
+					<i class="material-icons" ng-click="add()">&#xE147;</i>
 				</div>
 				<div ng-repeat="row in rows" ng-show="row.show">
 					<span><input type="text" class="text" name="parms[]" ng-model="row.name" /></span>
 					<span><input type="text" class="text" name="values[]" ng-model="row.value" /></span>
-					<span ng-click="hide(row.id)">刪除</span>
+					<i class="material-icons" ng-click="hide(row.id)">&#xE15C;</i>
 				</div>
 			</section>
-			<article id="res_html">
-			</article>
+			<article>{{ res }}</article>
 		</section>
 	</body>
 </html>

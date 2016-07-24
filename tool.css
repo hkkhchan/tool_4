@@ -123,6 +123,9 @@ nav{
 	width: 30%;
 	display: inline-block;
 }
+.material-icons{
+	cursor:pointer;
+}
 @media screen and (max-width: 960px) {
 	.button{
 		font-size:100%;

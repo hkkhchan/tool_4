@@ -1,6 +1,7 @@
 var app= angular.module('toolApp',[]).controller('toolCtrl',function($scope,$http){
 	$scope.method=2;
 	$scope.layout=1;
+	$scope.res='';
 	$scope.rows=[{id: 0,show:true,name:'',value:''}];
 	$scope.is_selected=function(d,k){return d==$scope[k]?'active':'';}
 	$scope.set_selected=function(d,k){$scope[k]=d;}
@@ -33,10 +34,21 @@ var app= angular.module('toolApp',[]).controller('toolCtrl',function($scope,$htt
 			method: 'POST',
 			url:  	'ajax.php',
 			data: 	parms
-		}).then(function success(res){
-			console.log('ok:'+res);
-		},function error(res){
-			console.log('err:'+res);
+		}).then(function success(d){
+			layout=$scope.layout;
+			switch($scope.layout){
+				case 1:
+					$scope.res=d.data;
+					break;
+				case 2:
+					$scope.res='<pre>'+d.data+'</pre>';
+					break;
+				case 3:
+					$scope.res='some json';
+					break;
+			}
+		},function error(d){
+			console.log('err:'+d);
 		});
 	}
 	$scope.reset=function(){
