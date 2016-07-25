@@ -4,8 +4,12 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.js"></script>
+		<script src="json-formatter.min.js"></script>
 		<script src="tool_4.js"></script>
+		<link href="json-formatter.min.css" rel="stylesheet">
 		<link href="tool.css" rel="stylesheet" type="text/css" />
+		
 	</head>
 	<body>
 		<section ng-app="toolApp" ng-controller="toolCtrl">
@@ -43,7 +47,7 @@
 			</section>
 			<div class="res_text">{{ res_text }}</div>
 			<div class="res_html" ng-bind-html='toTrustedHTML(res_html)'></div>
-			<json-formatter open="1" json="{my: 'json'}"></json-formatter>
+			<json-formatter open="1" json="res_json" ng-show="res_json!=''"></json-formatter>
 		</section>
 	</body>
 </html>

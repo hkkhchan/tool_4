@@ -1,4 +1,4 @@
-var app= angular.module('toolApp',[]).controller('toolCtrl',function($scope,$http,$sce){
+var app= angular.module('toolApp',['ngSanitize', 'jsonFormatter']).controller('toolCtrl',function($scope,$http,$sce,JSONFormatterConfig){
 	$scope.method=2;
 	$scope.layout=1;
 	$scope.res_text=$scope.res_html=$scope.res_json='';
@@ -24,6 +24,7 @@ var app= angular.module('toolApp',[]).controller('toolCtrl',function($scope,$htt
 		$scope.res_text=$scope.res_html=$scope.res_json='';
 		var parms = {
 			url: $scope.url,
+			json: $scope.layout==3?true:false, 
 			method: $scope.method==1?'GET':'POST'
 		};
 		var data=new Object;
@@ -36,15 +37,22 @@ var app= angular.module('toolApp',[]).controller('toolCtrl',function($scope,$htt
 			url:  	'ajax.php',
 			data: 	parms
 		}).then(function success(d){
+			var res='';
+			try{
+				res=JSON.parse(d.data);
+			}
+			catch(e){
+				res=d.data;
+			}
 			switch($scope.layout){
 				case 1:
-					$scope.res_text='<pre>'+d.data+'</pre>';
+					$scope.res_text=res;
 					break;
 				case 2:
-					$scope.res_html=d.data;
+					$scope.res_html=res;
 					break;
 				case 3:
-					$scope.res='function developing';
+					$scope.res_json=JSON.parse(res);
 					break;
 			}
 		},function error(d){

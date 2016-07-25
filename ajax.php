@@ -26,5 +26,10 @@
 	}
 	$res= curl_exec($ch);
 	curl_close($ch);
-	echo $res;
+	if ($parms->json) {
+		echo json_encode($res);
+	}
+	else{
+		echo $res;
+	}
 ?>
