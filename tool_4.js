@@ -21,10 +21,22 @@ var app= angular.module('toolApp',['ngSanitize', 'jsonFormatter']).controller('t
 		if (showNum > 1) $scope.rows[d].show=false;
 	}
 	$scope.go=function(){
+		if ($scope.url.substr(0,4).toLowerCase()=='http'){
+			url=$scope.url;
+		}
+		else if ($scope.url.substr(0,2)=='//'){
+			url='http:'+$scope.url;
+		}
+		else{
+			url='http://'+$scope.url;
+		}
 		$scope.res_text=$scope.res_html=$scope.res_json='';
+		link=document.createElement('a');
+		link.setAttribute('href',$scope.url);
 		var parms = {
-			url: $scope.url,
-			json: $scope.layout==3?true:false, 
+			url: url,
+			json: $scope.layout==3?true:false,
+			port: link.port!=''?link.port:80,
 			method: $scope.method==1?'GET':'POST'
 		};
 		var data=new Object;
